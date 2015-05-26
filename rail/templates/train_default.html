@@ -1,0 +1,9 @@
+<h1>Rail Info</h1>
+<form action="{%url 'rdet'%}" method = 'POST'>
+	{% csrf_token %}
+	<input type = "text" name = "train_num" value = "12707"></input>
+	<br>
+	<button type ="submit">Submit!</button>
+
+<!-- 	<input type ="submit" name "Vacancy" value="Vacancy"></input> -->
+</form>
