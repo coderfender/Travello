@@ -1,0 +1,39 @@
+<html >
+<!-- <meta http-equiv="refresh" content="30" > -->
+
+{%if res.response_code == 200%}
+
+<h2 align = 'center' color = red>Train Number :{{res.train_number}}</h2>
+{% if res.position != 'null'%}
+<h3>Current Position Details : {{res.position}} </h3>
+{%endif%}
+<br>
+<h3 align = 'center' color:'Blue'> Number of Stations : {{res.total}} </h3>
+
+<table align='center' border = "20px">
+	<tr>
+		<th>Station</th>
+		<th>Status</th>
+		<th>Sch Arrival</th>
+		<th>Actual Arrival</th>
+		<th>Sch Dep</th>
+		<th>Act Dep</th>
+	</tr>
+
+{%for k in res.route %}
+
+	<tr>
+		<td>{{k.station}} </td>
+		<td>{{k.status}}  </td>
+		<td>{{k.scharr}}  </td>
+		<td>{{k.actarr}}  </td>
+		<td>{{k.schdep}}  </td>
+		<td>{{k.actdep}}  </td>
+	</tr>
+
+{% endfor %}
+
+{%else%}
+<p color:'red'> Get Lost! Bad Response Code! Not your mistake!</p>
+{%endif%}
+</html>

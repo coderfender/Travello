@@ -12,7 +12,9 @@ def train(request):
 
 def rdet(request):
     if request.method == 'POST':
-        return HttpResponse(train_status(request.POST['train_num']))
+        res = train_status(request.POST['train_num'])
+        # return HttpResponse(train_status(request.POST['train_num']))
+        return render(request,'realtime.html',{'res':res})
 
         # return HttpResponse(t)
 
